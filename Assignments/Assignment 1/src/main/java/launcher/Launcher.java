@@ -14,15 +14,6 @@ public class Launcher {
 
 
         componentFactory.getLoginView().setVisible();
-       //if(componentFactory.getLoginView().chooseUser().equals("A")){
-         //   componentFactory.getAdministratorView().setVisible();
-        //}
-        //else if (componentFactory.getLoginView().chooseUser().equals("E")){
-            //componentFactory.getEmployeeView().setVisible(); }
-
-        //else {componentFactory.getLoginView().setVisible();
-        //System.out.println("am ajuns aici");}
-
 
     }
 
