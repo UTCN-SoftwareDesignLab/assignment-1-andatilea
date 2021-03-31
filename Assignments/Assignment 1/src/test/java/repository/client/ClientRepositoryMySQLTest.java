@@ -45,7 +45,7 @@ public class ClientRepositoryMySQLTest {
                 .setIdentity_cardNr(12345L)
                 .setAddress("Address Test-Save")
                 .build();
-        assertTrue(clientRepository.save(client));
+        assertTrue(clientRepository.save(client).getResult());
     }
 
     @Test

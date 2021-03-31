@@ -1,6 +1,7 @@
 package model.builder;
 
 import model.Client;
+import model.dto.ClientDTO;
 
 public class ClientBuilder {
 
@@ -33,6 +34,16 @@ public class ClientBuilder {
     public ClientBuilder setAddress(String address) {
         client.setAddress(address);
         return this;
+    }
+
+    public ClientBuilder dtoToClient(ClientDTO clientDTO){
+
+        client.setName(clientDTO.getName());
+        client.setIdentity_cardNr(clientDTO.getIdentityCardNb());
+        client.setCNP(clientDTO.getCNP());
+        client.setAddress(clientDTO.getAddress());
+        return this;
+
     }
 
     public Client build() {

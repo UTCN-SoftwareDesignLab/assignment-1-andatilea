@@ -9,4 +9,6 @@ public interface AuthenticationService {
 
     Notification<User> login(String username, String password);
 
+    Notification<Boolean> register(String username, String password);
+
 }

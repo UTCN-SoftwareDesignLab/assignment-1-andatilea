@@ -2,6 +2,8 @@ package model.builder;
 
 import model.Role;
 import model.User;
+import model.dto.ClientDTO;
+import model.dto.UserDTO;
 
 import java.util.List;
 
@@ -26,6 +28,14 @@ public class UserBuilder {
     public UserBuilder setRoles(List<Role> roles) {
         user.setRoles(roles);
         return this;
+    }
+
+    public UserBuilder dtoToUser(UserDTO userDTO){
+
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        return this;
+
     }
 
     public User build() {

@@ -24,18 +24,22 @@ repository/Cache.java
  repository.Cache
 model/dto/AccountDTO.java
  model.dto.AccountDTO
-repository/account/AccountRepositoryMySQL.java
- repository.account.AccountRepositoryMySQL
+database/JDBConnectionWrapper.java
+ database.JDBConnectionWrapper
 service/account/AccountServiceMySQL.java
  service.account.AccountServiceMySQL
 repository/security/RightsRolesRepositoryMySQL.java
  repository.security.RightsRolesRepositoryMySQL
 repository/client/ClientRepository.java
  repository.client.ClientRepository
-view/LoginView.java
- view.LoginView
-model/builder/AccountBuilder.java
- model.builder.AccountBuilder
+controller/AdministratorController.java
+ controller.AdministratorController
+ controller.AdministratorController$CreateEmployeeButtonListener
+ controller.AdministratorController$DeleteEmployeeButtonListener
+ controller.AdministratorController$ReadEmployeeButtonListener
+ controller.AdministratorController$UpdateEmployeeButtonListener
+database/DBConnectionFactory.java
+ database.DBConnectionFactory
 repository/security/RightsRolesRepository.java
  repository.security.RightsRolesRepository
 model/validation/UserValidator.java
@@ -46,64 +50,61 @@ database/Boostraper.java
  database.Boostraper
 service/account/AccountService.java
  service.account.AccountService
-database/JDBConnectionWrapper.java
- database.JDBConnectionWrapper
-database/DBConnectionFactory.java
- database.DBConnectionFactory
-model/User.java
- model.User
 model/builder/ClientBuilder.java
  model.builder.ClientBuilder
+repository/user/UserRepositoryMySQL.java
+ repository.user.UserRepositoryMySQL
+model/User.java
+ model.User
+repository/user/UserRepository.java
+ repository.user.UserRepository
 service/client/ClientServiceMySQL.java
  service.client.ClientServiceMySQL
+model/dto/UserDTO.java
+ model.dto.UserDTO
+service/client/ClientService.java
+ service.client.ClientService
+model/Client.java
+ model.Client
+model/builder/AccountBuilder.java
+ model.builder.AccountBuilder
+repository/account/AccountRepositoryMySQL.java
+ repository.account.AccountRepositoryMySQL
+model/validation/AccountValidator.java
+ model.validation.AccountValidator
+model/Account.java
+ model.Account
+model/builder/UserBuilder.java
+ model.builder.UserBuilder
+service/user/UserService.java
+ service.user.UserService
+view/EmployeeView.java
+ view.EmployeeView
+view/AdministratorView.java
+ view.AdministratorView
+service/user/UserServiceMySQL.java
+ service.user.UserServiceMySQL
+repository/client/ClientRepositoryMySQL.java
+ repository.client.ClientRepositoryMySQL
 controller/EmployeeController.java
  controller.EmployeeController
  controller.EmployeeController$BtnAccountButtonListener
  controller.EmployeeController$BtnBillsButtonListener
  controller.EmployeeController$BtnClientButtonListener
  controller.EmployeeController$BtnTransferButtonListener
-service/client/ClientService.java
- service.client.ClientService
-model/Client.java
- model.Client
-repository/client/ClientRepositoryMySQL.java
- repository.client.ClientRepositoryMySQL
-model/builder/UserBuilder.java
- model.builder.UserBuilder
-model/validation/AccountValidator.java
- model.validation.AccountValidator
-model/Account.java
- model.Account
-launcher/Launcher.java
- launcher.Launcher
-service/user/AuthenticationService.java
- service.user.AuthenticationService
-view/EmployeeView.java
- view.EmployeeView
 service/user/AuthenticationServiceMySQL.java
  service.user.AuthenticationServiceMySQL
-service/user/UserServiceMySQL.java
- service.user.UserServiceMySQL
+service/user/AuthenticationService.java
+ service.user.AuthenticationService
 controller/LoginController.java
  controller.LoginController
  controller.LoginController$LoginButtonListener
+ controller.LoginController$RegisterButtonListener
  controller.LoginController$ResetButtonListener
  controller.LoginController$ShowPassButtonListener
-controller/AdministratorController.java
- controller.AdministratorController
- controller.AdministratorController$CreateEmployeeButtonListener
- controller.AdministratorController$DeleteEmployeeButtonListener
- controller.AdministratorController$ReadEmployeeButtonListener
- controller.AdministratorController$UpdateEmployeeButtonListener
-view/AdministratorView.java
- view.AdministratorView
-service/user/UserService.java
- service.user.UserService
-repository/user/UserRepository.java
- repository.user.UserRepository
-repository/user/UserRepositoryMySQL.java
- repository.user.UserRepositoryMySQL
-model/dto/UserDTO.java
- model.dto.UserDTO
+view/LoginView.java
+ view.LoginView
+launcher/Launcher.java
+ launcher.Launcher
 launcher/ComponentFactory.java
  launcher.ComponentFactory

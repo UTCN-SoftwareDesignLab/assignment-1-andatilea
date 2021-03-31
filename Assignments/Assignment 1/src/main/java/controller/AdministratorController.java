@@ -34,9 +34,9 @@ public class AdministratorController {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            User createUser = new User();
-            createUser.setUsername(adminView.getUserDTO().getUsername());
-            createUser.setPassword(adminView.getUserDTO().getPassword());
+            User createUser = new UserBuilder()
+                    .dtoToUser(adminView.getUserDTO())
+                    .build();
 
             Notification<Boolean> createEmployee = userService.save(createUser);
 
@@ -71,9 +71,9 @@ public class AdministratorController {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-           User updateUser = new User();
-           updateUser.setUsername(adminView.getUserDTO().getUsername());
-           updateUser.setPassword(adminView.getUserDTO().getPassword());
+           User updateUser = new UserBuilder()
+                   .dtoToUser(adminView.getUserDTO())
+                   .build();
 
             Notification<Boolean> updateEmployee = userService.update(updateUser);
 

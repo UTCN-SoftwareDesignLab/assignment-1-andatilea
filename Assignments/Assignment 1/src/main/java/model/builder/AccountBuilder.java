@@ -1,5 +1,7 @@
 package model.builder;
 import model.Account;
+import model.dto.AccountDTO;
+import model.dto.ClientDTO;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -40,6 +42,16 @@ public class AccountBuilder {
     public AccountBuilder setDate_of_creation(String date_of_creation) {
         account.setDate_of_creation(date_of_creation);
         return this;
+    }
+
+    public AccountBuilder dtoToAccount(AccountDTO accountDTO){
+
+        account.setIdentification_nb(accountDTO.getIdentification_nb());
+        account.setAmount_of_money(accountDTO.getAmount_of_money());
+        account.setType(accountDTO.getType());
+        account.setDate_of_creation(accountDTO.getDate_of_creation());
+        return this;
+
     }
 
     public Account build() {

@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.util.Collections;
 import static database.Constants.Roles.EMPLOYEE;
 import static org.junit.Assert.*;
+
 public class UserRepositoryTest {
 
 
@@ -70,7 +71,7 @@ public class UserRepositoryTest {
                 .setPassword("TEST1!")
                 .setRoles(Collections.singletonList(role))
                 .build();
-        assertTrue(userRepository.save(user));
+        assertTrue(userRepository.save(user).getResult());
     }
 
     @Test

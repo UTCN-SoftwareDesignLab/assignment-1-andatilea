@@ -37,9 +37,9 @@ public class AccountRepositoryMySQLTest {
     public void findAll() {
 
         clientRepository.removeAll();
+        accountRepository.removeAll();
 
         Client client =  new ClientBuilder()
-                .setId(1L)
                 .setName("Client TestA")
                 .setCNP(123456789L)
                 .setIdentity_cardNr(12345L)
@@ -47,12 +47,11 @@ public class AccountRepositoryMySQLTest {
                 .build();
         clientRepository.save(client);
         Long clientID = client.getId();
-        accountRepository.removeAll();
 
         Account account =  new AccountBuilder()
                 .setIdentification_nb(12345L)
                 .setAmount_of_money(100)
-                .setClient_id(clientID)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();
@@ -67,11 +66,12 @@ public class AccountRepositoryMySQLTest {
         Account account =  new AccountBuilder()
                 .setIdentification_nb(55555L)
                 .setAmount_of_money(500)
-                .setClient_id(1L)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();
-        assertTrue(accountRepository.save(account));
+        accountRepository.save(account);
+        assertTrue(accountRepository.findAll().size() == 1);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class AccountRepositoryMySQLTest {
         Account account =  new AccountBuilder()
                 .setIdentification_nb(55555L)
                 .setAmount_of_money(500)
-                .setClient_id(1L)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();
@@ -90,7 +90,7 @@ public class AccountRepositoryMySQLTest {
         Account updateAccount = new AccountBuilder()
                 .setIdentification_nb(55555L)
                 .setAmount_of_money(10)
-                .setClient_id(1L)
+                .setClient_id(110L)
                 .setType("savings")
                 .setDate_of_creation("2021-03-31 10:10:00")
                 .build();
@@ -105,7 +105,7 @@ public class AccountRepositoryMySQLTest {
         Account account =  new AccountBuilder()
                 .setIdentification_nb(55566L)
                 .setAmount_of_money(660)
-                .setClient_id(20L)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();
@@ -123,7 +123,7 @@ public class AccountRepositoryMySQLTest {
         Account account =  new AccountBuilder()
                 .setIdentification_nb(55566L)
                 .setAmount_of_money(660)
-                .setClient_id(18L)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();
@@ -150,7 +150,7 @@ public class AccountRepositoryMySQLTest {
         Account accountSender =  new AccountBuilder()
                 .setIdentification_nb(55566L)
                 .setAmount_of_money(600)
-                .setClient_id(18L)
+                .setClient_id(110L)
                 .setType("bills")
                 .setDate_of_creation("2021-03-30 10:10:00")
                 .build();

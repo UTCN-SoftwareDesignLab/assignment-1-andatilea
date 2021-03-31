@@ -26,6 +26,7 @@ public class LoginController {
         this.administratorView = administratorView;
         this.employeeView = employeeView;
         loginView.setLoginButtonListener(new LoginButtonListener());
+        loginView.setRegisterButtonListener(new RegisterButtonListener());
         loginView.setResetButtonListener(new ResetButtonListener());
         loginView.setShowPassButtonListener(new ShowPassButtonListener());
     }
@@ -50,6 +51,28 @@ public class LoginController {
                         employeeView.setVisible();
                         loginView.dispose();
                     }
+                }
+            }
+        }
+    }
+
+    private class RegisterButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            String username = loginView.getUsername();
+            String password = loginView.getPassword();
+
+            Notification<Boolean> registerNotification = authenticationService.register(username, password);
+
+            if (registerNotification.hasErrors()) {
+                JOptionPane.showMessageDialog(loginView.getContentPane(), registerNotification.getFormattedErrors());
+            } else {
+                if (!registerNotification.getResult()) {
+                    JOptionPane.showMessageDialog(loginView.getContentPane(), "Registration not successful, please try again later.");
+                } else {
+                    JOptionPane.showMessageDialog(loginView.getContentPane(), "Registration successful!");
                 }
             }
         }

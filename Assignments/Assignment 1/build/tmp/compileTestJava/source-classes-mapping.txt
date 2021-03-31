@@ -1,6 +1,6 @@
-repository/account/AccountRepositoryMySQLTest.java
- repository.account.AccountRepositoryMySQLTest
-repository/client/ClientRepositoryMySQLTest.java
- repository.client.ClientRepositoryMySQLTest
 repository/user/UserRepositoryTest.java
  repository.user.UserRepositoryTest
+repository/client/ClientRepositoryMySQLTest.java
+ repository.client.ClientRepositoryMySQLTest
+repository/account/AccountRepositoryMySQLTest.java
+ repository.account.AccountRepositoryMySQLTest

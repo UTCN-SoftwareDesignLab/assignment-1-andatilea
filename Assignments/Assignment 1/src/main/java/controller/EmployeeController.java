@@ -1,6 +1,8 @@
 package controller;
 import model.Account;
 import model.Client;
+import model.builder.AccountBuilder;
+import model.builder.ClientBuilder;
 import model.validation.Notification;
 import service.account.AccountService;
 import service.client.ClientService;
@@ -64,13 +66,11 @@ public class EmployeeController {
 
                 case ADD_CLIENT: {
 
-                    Client client = new Client();
-                    client.setName(employeeView.getClientDTO().getName());
-                    client.setIdentity_cardNr(employeeView.getClientDTO().getIdentityCardNb());
-                    client.setCNP(employeeView.getClientDTO().getCNP());
-                    client.setAddress(employeeView.getClientDTO().getAddress());
+                    Client newClient = new ClientBuilder()
+                            .dtoToClient(employeeView.getClientDTO())
+                            .build();
 
-                    Notification<Boolean> createClientNotification = clientService.save(client);
+                    Notification<Boolean> createClientNotification = clientService.save(newClient);
                     if(createClientNotification.getResult()){
 
                         JOptionPane.showMessageDialog(employeeView.getContentPane(), "The Client has been added!");
@@ -83,11 +83,9 @@ public class EmployeeController {
 
                 case UPDATE_CLIENT: {
 
-                    Client updatedClient = new Client();
-                    updatedClient.setName(employeeView.getClientDTO().getName());
-                    updatedClient.setIdentity_cardNr(employeeView.getClientDTO().getIdentityCardNb());
-                    updatedClient.setCNP(employeeView.getClientDTO().getCNP());
-                    updatedClient.setAddress(employeeView.getClientDTO().getAddress());
+                    Client updatedClient = new ClientBuilder()
+                            .dtoToClient(employeeView.getClientDTO())
+                            .build();
 
                     // check if the client exists in the database using the CNP
                     Notification<Client> findClientNotification = clientService.findByCNP(updatedClient.getCNP());
@@ -138,12 +136,10 @@ public class EmployeeController {
                           // if the client exist, we can take his id
                           Long clientID = findClientNotification.getResult().getId();
 
-                          Account accountToCreate = new Account();
-                          accountToCreate.setIdentification_nb(employeeView.getAccountDTO().getIdentification_nb());
-                          accountToCreate.setAmount_of_money(employeeView.getAccountDTO().getAmount_of_money());
-                          accountToCreate.setType(employeeView.getAccountDTO().getType());
-                          accountToCreate.setDate_of_creation(employeeView.getAccountDTO().getDate_of_creation());
-                          accountToCreate.setClient_id(clientID);
+                          Account accountToCreate = new AccountBuilder()
+                                  .dtoToAccount(employeeView.getAccountDTO())
+                                  .setClient_id(clientID)
+                                  .build();
 
                         Notification<Boolean> createAccountNotification = accountService.save(accountToCreate);
 
@@ -171,12 +167,10 @@ public class EmployeeController {
                         // if the client exist, we can take his id
                         Long clientID = findClientNotification.getResult().getId();
 
-                        Account accountToUpdate = new Account();
-                        accountToUpdate.setIdentification_nb(employeeView.getAccountDTO().getIdentification_nb());
-                        accountToUpdate.setAmount_of_money(employeeView.getAccountDTO().getAmount_of_money());
-                        accountToUpdate.setType(employeeView.getAccountDTO().getType());
-                        accountToUpdate.setDate_of_creation(employeeView.getAccountDTO().getDate_of_creation());
-                        accountToUpdate.setClient_id(clientID);
+                        Account accountToUpdate = new AccountBuilder()
+                                .dtoToAccount(employeeView.getAccountDTO())
+                                .setClient_id(clientID)
+                                .build();
 
                         Notification<Boolean> updateAccountNotification = accountService.update(accountToUpdate);
 

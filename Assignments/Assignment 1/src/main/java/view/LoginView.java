@@ -11,6 +11,7 @@ public class LoginView extends JFrame {
     private JLabel username;
     private JLabel password;
     private JButton btnLogin;
+    private JButton btnRegister;
     private JButton btnReset;
     private JCheckBox showPassword;
     private JLabel helloMessage1;
@@ -44,6 +45,9 @@ public class LoginView extends JFrame {
         add(btnLogin);
         btnLogin.setBounds(50,300,100,30);
         btnLogin.setBackground(buttonColor);
+        add(btnRegister);
+        btnRegister.setBounds(230, 510,100,30);
+        btnRegister.setBackground(buttonColor);
         add(btnReset);
         btnReset.setBounds(200,300,100,30);
         btnReset.setBackground(buttonColor);
@@ -61,6 +65,7 @@ public class LoginView extends JFrame {
         tfPassword = new JPasswordField();
         tfPassword.setEchoChar('*');
         btnLogin = new JButton("LOGIN");
+        btnRegister = new JButton("REGISTER");
         btnReset = new JButton("RESET");
         showPassword = new JCheckBox("Show Password:");
     }
@@ -88,6 +93,8 @@ public class LoginView extends JFrame {
     public JButton reset() { return btnReset;}
 
     public void setLoginButtonListener(ActionListener loginButtonListener) { btnLogin.addActionListener(loginButtonListener); }
+
+    public void setRegisterButtonListener(ActionListener registerButtonListener) { btnRegister.addActionListener(registerButtonListener);}
 
     public void setResetButtonListener(ActionListener resetButtonListener) { btnReset.addActionListener(resetButtonListener); }
 
